@@ -1,14 +1,21 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Comforter&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); */
 body{
-    background: white;
+    background: radial-gradient(rgb(8, 8, 85),  rgb(152, 16, 194));
     height: 100%; 
     width: 100%;
     background-size: cover;
     opacity: 0.7;  
+    display: flex;
+    justify-content: center;
+
 }
 #form{
    display: grid;
-   place-items: center;   
+   place-items: center;  
+   height: fit-content;
+   width: fit-content; 
+   background: none;
+   border: 10px rgb(73, 161, 0);
 }
 #pearl{
     padding-top: 5%;
@@ -32,16 +39,15 @@ body{
     position: relative;
     bottom: -60px;   
 }
-#welcome {
-    
-}
-
 #welcome, #welcomee {
     font-size: 20px;
     font-weight: bold;
     position: relative;
     bottom: -20px;
     left: -80px;
+    background: linear-gradient(rgb(110, 101, 226), rgb(121, 20, 141), white, red, rgb(76, 76, 168));
+    border-radius: 5px;
+    margin-bottom: 30px;
 }
 #welcomee {
     left: -45px;
@@ -49,6 +55,7 @@ body{
 #info{
     position: relative;
     top: -50px;
+    color: rgb(206, 15, 126);
 }
 #spann, #span{
     background: black;
@@ -73,6 +80,7 @@ p{
     width: 270px;
     height: 45px;
     font-size: 35px;
+    txtcolor: rgb(255, 255, 255);
     margin-bottom: 10px;
     border-radius: 7px;
     display: flex;
@@ -138,7 +146,7 @@ h3{
   font-size: x-large;
   font-family: sans-serif;
 }
-#email, #name, #password, #passwordenter {
+#email, #name, #password, #verifypassword {
     width: 300px;
     height: 40px;
     border: 2px solid grey;
@@ -211,9 +219,6 @@ h3{
     background: linear-gradient(rgb(66, 66, 158), rgb(230, 11, 11));
 }
 @media (max-width:480px) {
-   * {
-    background: rgb(179, 179, 201);
-   }
     #pearl{
     width: 150px;
     height: 200px;   
@@ -236,6 +241,11 @@ h3{
 }
 #login {
     margin-top: 60px;
+}
+#welcome, #welcomee {
+    height: 30px;
+    width: fit-content;
+     background: linear-gradient(rgb(110, 101, 226), rgb(121, 20, 141), white, red, rgb(76, 76, 168));
 }
 }
 @media (min-width:481px) and (max-width: 860px) {
@@ -263,7 +273,10 @@ h3{
     #welcome, #welcomee {
         font-size: 30px;
     }
-    #email, #password, #name, #passwordenter {
+    #welcome{
+        left: -105px;
+    }
+    #email, #password, #name, #verifypassword {
         width: 420px;
         height: 45px;
         font-size: 20px;
@@ -315,23 +328,22 @@ h3{
     font-size: 50px;
     border-radius: 15px;
     }
-    #welcome, #welcomee, #page {
+    #page {
         font-size: 60px;
     }
-      #email, #password, #name, #passwordenter {
+    #welcomee {
+        left: 20px;
+        font-size: 60px;
+    }
+      #email, #password, #name, #verifypassword {
         width: 700px;
         height: 60px;
         font-size: 40px;
         margin-bottom: 15px;
 
     }
-     #login{ 
-        width: 500px;
-        height: 60px;
-        font-size: 50px;
-        border-radius: 10px;
-        position: relative;
-    }
+
+    
     #forgot {
         font-size: 40px;
     }
@@ -361,7 +373,6 @@ h3{
         height: 75px;
         font-size: 50px;
         border-radius: 10px;
-        margin-top: 20px;
     }
     #spaann{
         position: relative;
@@ -379,3 +390,86 @@ h3{
     }
 
 }   
+@media (min-width: 1024px) {
+     #pearl {
+        height: 550px;
+        width: 450px;
+    }
+    #label {
+        font-size: 50px;
+        font-weight: 500;
+    }
+    #info{
+        font-size: 40px;
+        font-weight: bolder;
+        margin-top: 50px;
+        margin-bottom: 220px;
+    }
+    #btns, #btons{
+    width: 650px;
+    height: 65px;
+    font-size: 50px;
+    border-radius: 15px;
+
+    }
+    #page {
+        font-size: 60px;
+    }
+     #welcome {
+        left: -135px;
+        font-size: 60px;
+     }
+    #welcomee {
+        left: -25px;
+         font-size: 60px;
+    }
+      #email, #password, #name, #verifypassword {
+        width: 700px;
+        height: 60px;
+        font-size: 40px;
+        margin-bottom: 15px;
+
+    }
+    #or, #orr {
+        font-size: 40px;
+    }
+    #span, #spann, #sppan, #spaann {
+        height: 5px;
+        width: 200px;
+        position: relative;
+    }
+    #spann {
+        top: -25px;
+        left: 130px;
+    }
+    #span {
+        top: -155px;
+        left: -130px;
+    }
+    #text {
+        font-size: 40px;
+        left: -90px;
+        top: -15px;
+    }
+    #Signup, #login{
+        width: 600px;
+        height: 75px;
+        font-size: 50px;
+        border-radius: 10px;
+        margin-top: 100px;
+    }
+    #spaann{
+        position: relative;
+        top: 15px;
+        left: 125px;
+    }
+    #sppan {
+        left: -135px;
+        top: -115px;
+    }
+    #btnns, #btoons {
+        width: 750px;
+        height: 75px;
+        font-size: 55px;
+    }
+}

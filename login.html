@@ -9,19 +9,21 @@
     <body>
       <form id="form">
         <h1 id="page">Log in</h1><br>
-        <h3 id="welcome">Welcome back!</h3>
+        <h3 id="welcome"><marquee>Welcome back!</marquee></h3>
         <input type="email" placeholder="  Enter your email"  id="email" ><br>
-        <input type="password" placeholder=" Password"  id="password"><br>
+        <p id="mailpass" style="color: red; background: white; font-size: small;"></p><br>
+        <input type="password" placeholder=" Password"  id="password" minlength="8" maxlength="8" ><br>
+        <p id="passtext" style="color: red; background: white; font-size: small;"></p><br>
         <button type="submit" id="login">Log in</button><br>
         <p><h3 id="forgot">Forgot password?</h3></p>
         <p id="dvd"><div id="spann"></div><h3 id="or">Or</h3><div id="span"></div></p> 
         <button id="btns"><a href="https://google.com" target="_blank"></a>Log in with Google</button><br>
         <button id="btons"><a href="https://apple.com" target="_blank"></a>Log in with Apple</button><br>
-        <div id="popup">
-        <p id="error"></p> <br> <button id="closepopup">OK</button>
-        </div>
+      
+        <p id="error" style="color: green; background: white; font-size: medium;"></p> <br>
+      
       </form>
-     <script >
+  <script >
       console.log("My script is running");
 let form = 
 document.getElementById("form");
@@ -29,50 +31,58 @@ let email =
 document.getElementById("email");
 let password =
 document.getElementById("password");
-let popup = 
-document.getElementById("popup");
-let closePopup =
-document.getElementById("closepopup");
+// let popup = 
+// document.getElementById("popup");
+// let closePopup =
+// document.getElementById("closepopup");
 let popupMessage =
 document.getElementById("error");
-let passwordPattern =
-/^[A-Z][?=...*\d][?=...*!@#$%^&*][a-z].{8}$/;
-function showPopup(message) {
-    popupMessage.textContent = message;
-    popup.classList.remove("hidden");
-}
+let mail =
+document.getElementById("mailpass");
+let pass =
+document.getElementById("passtext");
+
+form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        mail.textContent = "";
+        pass.textContent = "";
+        popupMessage.textContent = "";
+        console.log("my button was clicked");
+    if (password.value.trim() === "" && email.value.trim() === "") {
+      alert("Complete your entry to proceed.");
+      return;
+    }        
+    else if (email.value.trim() === "") {
+      mail.textContent = ("Error  ❌ ! Please input a valid email address to proceed.");
+      console.log(email.value.trim);
+      return;
+    }
+    else if (password.value.trim() === "") {
+      pass.textContent = ("Error  ❌ ! Input a valid password.");
+      console.log(password.value.trim);
+      return;
+    }
+    else if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*?])$/.test(password.value.trim())) {   
+      pass.textContent = ("Password must contain an uppercase, lowercase letter, a digit, a special character and a least 8 characters. ");
+      return;
+  }
+  else {
+    popupMessage.textContent = "Congratulations! you have submitted your entries successfully";
+    console.log(popuoMessage.textContent);
+    form.reset();
+    return;
+  } 
+});
+    </script>  
+    </body>    
+</html>
+    <!-- 
+//     function showPopup(message) {
+//     popupMessage.textContent = message;
+//     popup.classList.remove("hidden");
+// }
 // function hidePopup() {
 //     popup.classList.add("hidden");
 //     popup.style.display = "none";
 // }
-// closePopup.addEventListener("click", hidePopup);
-form.addEventListener("submit", function(e) {
-        e.preventDefault();
-        showPopup("An entry must be made to proceed");
-        console.log("my button was clicked");
-    if (email.value.trim() === "") {
-        showPopup("Error  ❌ ! Please input a valid email address to proceed.");
-        let isFormValid = false;
-        console.log(email.value);
-        
-    }
-    else if (password.value.trim() === "") {
-        showPopup("Error  ❌ ! Input a valid password.");
-        let isFormValid = false;
-        console.log(password.value);
-        
-    }
-    else if (!passwordPattern.test((password.value.trim()))) {
-        showPopup("Password must follow the format Abcdef(symbol)(number 0-9).");
-    }
-    else{
-       showPopup("Congratulations !" + " you have submitted your entry successfully");
-       form: form.reset();
-    }
-});
-
-
-     </script>    
-    </body>
-   
-</html>
+// closePopup.addEventListener("click", hidePopup); -->
